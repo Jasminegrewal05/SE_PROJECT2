@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logout | Pratigya Abhiyaan</title>
+<style>
+body {
+    margin:0;
+    font-family:Arial, sans-serif;
+    background-color:black; /* simple black background */
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    text-align:center;
+}
+.card {
+    background: rgba(255,255,255,0.08);
+    padding: 30px;
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+    width: 80%;
+    max-width: 400px;
+}
+button {
+    padding: 12px 20px;
+    border:none;
+    border-radius:8px;
+    background:#ecb613;
+    color:black;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:20px;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Logout</h2>
+    <p>You have been logged out successfully.</p>
+    <button onclick="goToLogin()">Go to Login Page</button>
+</div>
+
+<script>
+function goToLogin() {
+    window.location.href = "login.html"; 
+}
+</script>
+
+</body>
+</html>

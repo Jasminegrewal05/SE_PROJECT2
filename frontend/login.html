@@ -1,0 +1,168 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pratigya Abhiyaan - Login</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: url('https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=1744&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: #fff;
+    }
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 0px;
+        display: flex;
+        justify-content: center;
+        background: rgba(0,0,0,0.4);
+        backdrop-filter: blur(5px);
+    }
+    .header-inner h2 { font-size:18px; }
+    .header-inner {
+        width: 90%;
+        max-width: 1100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    nav a {
+        margin-left: 20px;
+        color: rgba(255,255,255,0.8);
+        text-decoration: none;
+        font-size: 14px;
+        transition: 0.3s;
+    }
+    nav a:hover { color: #fff; }
+    .container {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 50px;
+    }
+    .content {
+        max-width: 420px;
+        text-align: center;
+        background: rgba(0,0,0,0.5);
+        padding: 30px;
+        border-radius: 12px;
+        backdrop-filter: blur(6px);
+    }
+    input, select {
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0;
+        border-radius: 8px;
+        border: none;
+        background: rgba(255,255,255,0.15);
+        color: white;
+    }
+    option { color: black; }
+    button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        margin-top: 10px;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .login-btn { background: #ecb613; color: #000; align-items: center;}
+    
+    footer {
+        text-align:center;
+        padding:15px;
+        position: fixed;
+        bottom:0;
+        width:100%;
+        background: rgba(0,0,0,0.4);
+        backdrop-filter: blur(5px);
+        font-size:12px;
+    }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <h2>Pratigya Abhiyaan</h2>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="content">
+    <h1>Warming Hearts & Igniting Minds...</h1>
+    <p>Welcome to Pratigya Abhiyaan. Please log in to continue.</p>
+
+    <select id="role">
+      <option value="student_dashboard.html">Student</option>
+      <option value="volunteer_dashboard.html">Volunteer</option>
+      
+    </select>
+
+    <input type="text" placeholder="Email or Username" />
+    <input type="password" placeholder="Password" />
+
+    <div style="display: flex; justify-content: space-between;">
+      <button class="login-btn" onclick="redirect()">Log In</button>
+      
+    
+</div>
+
+<footer>© 2024 Pratigya Abhiyaan. All rights reserved.</footer>
+
+<script>
+async function redirect() {
+  const rolePage = document.getElementById("role").value;
+  const username = document.querySelector('input[type="text"]').value;
+  const password = document.querySelector('input[type="password"]').value;
+
+  if (!username || !password) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  try {
+    const res = await fetch("http://localhost:4000/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        username,
+        password,
+        rolePage
+      })
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      alert(data.message);
+      return;
+    }
+
+    // Save user session (optional)
+    localStorage.setItem("user", JSON.stringify(data.user));
+
+    // Redirect to correct dashboard
+    window.location.href = data.redirect;
+
+  } catch (err) {
+    alert("Server error. Is backend running?");
+  }
+}
+</script>
+
+</body>
+</html>

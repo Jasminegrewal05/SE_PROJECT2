@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Science | Course Content</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial;
+        background: url('https://plus.unsplash.com/premium_photo-1750137405605-906144d54bf0?q=80&w=774&auto=format&fit=crop');
+        background-size: cover;
+        color: white;
+    }
+
+    .sidebar {
+        width: 230px;
+        height: 100vh;
+        position: fixed;
+        top: 0; left: 0;
+        background: rgba(0,0,0,0.6);
+        padding-top: 20px;
+        backdrop-filter: blur(6px);
+    }
+
+    .sidebar h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #ecb613;
+    }
+
+    .sidebar a {
+        display: block;
+        padding: 12px 20px;
+        color: white;
+        text-decoration: none;
+        opacity: 0.85;
+        transition: 0.3s;
+    }
+
+    .sidebar a:hover, .active {
+        background: rgba(236,182,19,0.25);
+        color: #ecb613;
+        border-left: 3px solid #ecb613;
+    }
+
+    .content {
+        margin-left: 240px;
+        padding: 30px;
+    }
+
+    .card {
+        background: rgba(255,255,255,0.08);
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        backdrop-filter: blur(6px);
+    }
+
+    .card h3 {
+        color: #ecb613;
+    }
+
+    .resource {
+        padding: 10px 0;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .resource:hover {
+        color: #ecb613;
+        transform: translateX(5px);
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>Student Panel</h2>
+    <a href="dashboard.html">Dashboard</a>
+    <a class="active" href="courses.html">Courses</a>
+     <a  href="upload_assignments.html">Upload Assignment</a>
+     <a  href="view_grades.html">View Grades</a>
+   
+    <a href="profile.html">Profile</a>
+    <a href="logout.html">Logout</a>
+</div>
+
+<div class="content">
+    <h2>📘 Science – Course Content</h2>
+
+    <div class="card">
+        <h3>🎥 Video Lectures</h3>
+        <div class="resource">Chapter 1 – Introduction</div>
+        <div class="resource">Chapter 2 – Story Explanation</div>
+        <div class="resource">Grammar Basics</div>
+    </div>
+
+    <div class="card">
+        <h3> PPT / Notes / assignments</h3>
+        <div class="resource">Chapter 1 Notes (PDF)</div>
+        <div class="resource">Chapter 2 Notes (PDF)</div>
+        <div class="resource">Grammar Notes (PDF)</div>
+    </div>
+
+</div>
+
+</body>
+</html>
