@@ -83,8 +83,6 @@ document.getElementById("uploadForm").addEventListener("submit", async (e) => {
 
     formData.append("file", fileInput.files[0]);
     formData.append("assignmentName", assignmentName);
-
-    // ✅ HARDCODED STUDENT (SAFE)
     formData.append("studentId", "667788999");
     formData.append("studentName", "Riya Sharma");
 
