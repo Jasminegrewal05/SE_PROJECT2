@@ -16,7 +16,7 @@ app.use("/uploads", express.static("uploads"));
 const Content = require("./models/Content");
 const AssignmentSubmission = require("./models/AssignmentSubmission");
 
-// Hardcoded users for login
+
 const users = [
   {
     email: "student@test.com",
@@ -32,7 +32,7 @@ const users = [
   }
 ];
 
-// ==================== Multer Storage ====================
+
 
 // Volunteer content uploads
 const storage = multer.diskStorage({
