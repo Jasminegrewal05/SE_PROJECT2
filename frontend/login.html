@@ -152,10 +152,9 @@ async function redirect() {
       return;
     }
 
-    // Save user session (optional)
+    // Save user session (optional
     localStorage.setItem("user", JSON.stringify(data.user));
 
-    // Redirect to correct dashboard
     window.location.href = data.redirect;
 
   } catch (err) {
